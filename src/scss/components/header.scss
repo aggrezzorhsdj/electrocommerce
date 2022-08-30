@@ -6,7 +6,7 @@
   box-shadow: $ec-header-box-shadow;
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 999;
   background-color: $snow;
   &__menu {
     &-toggler {
@@ -27,5 +27,25 @@
         font-size: 1.3rem;
       }
     }
+  }
+
+  #cart-customlocation {
+    position: relative;
+    color: $black-hole;
+
+  }
+
+  .ec-cart-count {
+    position: absolute;
+    left: 5px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    background-color: $smoke;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 1;
   }
 }

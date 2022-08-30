@@ -28,18 +28,18 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 <div <?php wc_product_class( "col-md-$columns $type mb-4", $product ); ?>>
     <div class="ec-shop__product">
         <a class="ec-shop__product-link" href="<?php echo get_permalink($product->ID)?>">
-            <div class="ec-shop__product-thumbnail ec-shop__product-item mb-4">
+            <div class="ec-shop__product-thumbnail ec-shop__product-item">
                 <?php echo woocommerce_get_product_thumbnail()?>
             </div>
-            <div class="ec-shop__product-link-content mb-4">
-                <div class="ec-shop__product-title ec-shop__product-item">
+            <div class="ec-shop__product-link-content">
+                <div class="ec-shop__product-title mb-2">
                     <?php echo get_the_title()?>
                 </div>
                 <div class="ec-shop__product-link-content-info">
-                    <div class="ec-shop__product-rating ec-shop__product-item">
+                    <div class="ec-shop__product-rating mb-2">
                         <?php woocommerce_template_loop_rating()?>
                     </div>
-                    <div class="ec-shop__product-stock ec-shop__product-item">
+                    <div class="ec-shop__product-stock mb-2">
                         <?php wc_get_template('loop/stock.php');?>
                     </div>
                 </div>

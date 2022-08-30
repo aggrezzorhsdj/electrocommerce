@@ -1,6 +1,8 @@
 .woocommerce {
   div.product span.price del,
-  div.product span.price ins {
+  div.product span.price ins,
+  div.product p.price del,
+  div.product p.price ins{
     display: block;
   }
 
@@ -9,15 +11,18 @@
     font-weight: 600;
   }
 
-  div.product span.price del {
+  div.product span.price del,
+  div.product p.price del{
     font-size: 12px;
   }
 
-  div.product span.price ins {
+  div.product span.price ins,
+  div.product p.price ins {
     font-size: $h4-font-size;
   }
 
-  div.product span.price {
+  div.product span.price,
+  div.product p.price{
     color: $black-hole;
   }
 
@@ -37,5 +42,15 @@
     span::before {
       color: $hurma;
     }
+  }
+
+  #content div.product div.images,
+  div.product div.images,
+  div.product div.summary,
+  &.woocommerce-page #content div.product div.images,
+  &.woocommerce-page div.product div.images,
+  &.woocommerce-page div.product div.summary{
+    float: none;
+    width: auto;
   }
 }

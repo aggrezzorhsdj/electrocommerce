@@ -1,0 +1,9 @@
+.ec-product {
+  &__wrapper {
+    background-color: $snow;
+    padding: $ec-padding-xl;
+    box-shadow: $ec-shadow-2;
+    margin-bottom: $ec-margin-xxl;
+    border-radius: $ec-border-radius;
+  }
+}

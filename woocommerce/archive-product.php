@@ -23,19 +23,19 @@ if (is_product_category()) {
     $term_id = (int)get_queried_object_id();
 }
 ?>
+    <?php
+    /**
+     * Hook: woocommerce_before_main_content.
+     *
+     * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+     * @hooked woocommerce_breadcrumb - 20
+     * @hooked WC_Structured_Data::generate_website_data() - 30
+     */
+    do_action('woocommerce_before_main_content');
+
+    ?>
     <section class="ec-section ec-shop">
         <div class="container">
-            <?php
-            /**
-             * Hook: woocommerce_before_main_content.
-             *
-             * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-             * @hooked woocommerce_breadcrumb - 20
-             * @hooked WC_Structured_Data::generate_website_data() - 30
-             */
-            do_action('woocommerce_before_main_content');
-
-            ?>
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
                     <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>

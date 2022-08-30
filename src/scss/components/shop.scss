@@ -113,3 +113,37 @@
   }
 
 }
+
+._list {
+  .ec-shop {
+    &__product {
+      flex-direction: row;
+
+      &-item {
+        padding-right: $ec-padding-xxl;
+      }
+
+      @media (min-width: 769px) {
+        &-item {
+          margin-bottom: 0;
+        }
+      }
+
+      &-link {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+      }
+
+      &-thumbnail {
+        max-width: 160px;
+      }
+
+      &-bottom {
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+  }
+}

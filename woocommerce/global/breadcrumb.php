@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! empty( $breadcrumb ) ) {
-
+    echo '<div class="container">';
 	echo '<nav class="ec-breadcrumbs">';
 
 	foreach ( $breadcrumb as $key => $crumb ) {
@@ -46,5 +46,5 @@ if ( ! empty( $breadcrumb ) ) {
 	}
 
 	echo '</nav>';
-
+    echo '</div>';
 }

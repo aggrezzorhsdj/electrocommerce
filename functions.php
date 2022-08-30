@@ -167,17 +167,8 @@ add_action( 'after_setup_theme', 'electrocommerce_add_woocommerce_support' );
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
-	global $woocommerce;
-
 	ob_start();
-
-	?>
-    <a id="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>">
-        <i class="bi bi-basket3"></i>
-		<?php _e('Cart', 'electrocommerce')?>
-        <span class="ec-cart-count"><?php echo $woocommerce->cart->get_cart_contents_count()?></span>
-    </a>
-	<?php
+    electrocommerce_cart_html();
 	$fragments['#cart-customlocation'] = ob_get_clean();
 	return $fragments;
 }
@@ -186,6 +177,8 @@ remove_action( 'woocommerce_before_main_content',   'woocommerce_output_content_
 remove_action( 'woocommerce_after_main_content',  'woocommerce_output_content_wrapper_end',   10 );
 remove_action( 'woocommerce_before_shop_loop',  'woocommerce_result_count',   20 );
 remove_action( 'woocommerce_before_shop_loop',  'woocommerce_catalog_ordering',   30 );
+remove_action( 'woocommerce_single_product_summary',  'woocommerce_template_single_price',   10 );
+remove_action( 'woocommerce_after_single_product_summary',  'woocommerce_output_related_products',   20 );
 
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 function new_loop_shop_per_page( $cols ) {

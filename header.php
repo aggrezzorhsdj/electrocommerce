@@ -64,11 +64,7 @@
 				<?php aws_get_search_form( true ); ?>
             </div>
             <div class="col justify-content-end d-flex">
-                <a id="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>">
-                    <i class="bi bi-basket3"></i>
-                    <?php _e('Cart', 'electrocommerce')?>
-                    <span class="ec-cart-count"><?php echo WC()->cart->get_cart_contents_count()?></span>
-                </a>
+                <?php electrocommerce_cart_html()?>
             </div>
         </div>
     </div>

@@ -161,3 +161,22 @@ function get_unique_attrs($attrs) {
 
     return array_unique($result);
 }
+
+function electrocommerce_cart_html() {
+    ?>
+    <a id="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>">
+        <i class="bi bi-cart3"></i>
+        <?php
+        if ( ! WC()->cart->prices_include_tax ) {
+            $amount = WC()->cart->cart_contents_total;
+        } else {
+            $amount = WC()->cart->cart_contents_total + WC()->cart->tax_total;
+        }
+        ?>
+        <?php echo ($amount ? wc_price($amount) : __('Cart', 'electrocommerce'))?>
+        <?php if ($amount !== 0) : ?>
+            <span class="ec-cart-count"><?php echo WC()->cart->get_cart_contents_count()?></span>
+        <?php endif;?>
+    </a>
+    <?php
+}

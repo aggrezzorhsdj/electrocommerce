@@ -13,6 +13,7 @@ $theme-colors: (
 
 $input-height: calc(3rem + 2px);
 $input-padding-y: 0.8rem;
+$headings-font-weight: 700;
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -87,6 +88,7 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 @import "components/breadcrumbs";
 @import "components/basics";
 @import "components/form";
+@import "components/product";
 
 body {
   font-size: 14px;
