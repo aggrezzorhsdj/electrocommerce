@@ -12,4 +12,10 @@
   &-secondary {
     --bs-btn-bg: #{$snow};
   }
+
+  &-outline {
+    &-secondary {
+      color: $black-hole;
+    }
+  }
 }

@@ -158,6 +158,9 @@ add_action( 'wp_enqueue_scripts', 'electrocommerce_scripts' );
 
 function electrocommerce_add_woocommerce_support(){
 	add_theme_support( 'woocommerce' );
+	/*add_theme_support('wc-product-gallery-slider');
+	add_theme_support('wc-product-gallery-lightbox');*/
+//	add_theme_support('wc-product-gallery-zoom');
 }
 add_action( 'after_setup_theme', 'electrocommerce_add_woocommerce_support' );
 
@@ -179,6 +182,13 @@ remove_action( 'woocommerce_before_shop_loop',  'woocommerce_result_count',   20
 remove_action( 'woocommerce_before_shop_loop',  'woocommerce_catalog_ordering',   30 );
 remove_action( 'woocommerce_single_product_summary',  'woocommerce_template_single_price',   10 );
 remove_action( 'woocommerce_after_single_product_summary',  'woocommerce_output_related_products',   20 );
+remove_action( 'woocommerce_before_single_product_summary',  'woocommerce_show_product_sale_flash',   10 );
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 20 );
 
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 function new_loop_shop_per_page( $cols ) {
@@ -198,6 +208,19 @@ if (!function_exists('loop_columns')) {
 
 add_filter( 'woocommerce_product_get_rating_html', 'electrocommerce_woocommerce_product_get_rating_html_filter', 10, 3 );
 
+/*add_action( 'wp_enqueue_scripts', 'disable_woocommerce_scripts' );
+function disable_woocommerce_scripts() {
+    wp_deregister_script( 'wc-single-product' );
+    wp_dequeue_script( 'wc-single-product' );
+    wp_enqueue_script('wc-single-product', get_template_directory_uri() . '/js/single-product.js', array ( 'jquery' ), null, true);
+}*/
+
+add_filter( 'woocommerce_single_product_carousel_options', 'woocommerce_single_product_carousel_options_filter' );
+
+function woocommerce_single_product_carousel_options_filter( $array ){
+    return $array;
+}
+
 /**
  * Function for `woocommerce_product_get_rating_html` filter-hook.
  *
@@ -211,6 +234,38 @@ function electrocommerce_woocommerce_product_get_rating_html_filter( $html, $rat
     $label = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
     $html  = '<div class="star-rating" role="img" aria-label="' . esc_attr( $label ) . '">' . wc_get_star_rating_html( $rating, $count ) . '</div><div class="star-count">'.$count.'</div>';
     return $html;
+}
+
+add_action('wp_ajax_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
+add_action('wp_ajax_nopriv_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
+
+function woocommerce_ajax_add_to_cart() {
+
+    $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+    $variation_id = absint($_POST['variation_id']);
+    $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity);
+    $product_status = get_post_status($product_id);
+
+    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id) && 'publish' === $product_status) {
+
+        do_action('woocommerce_ajax_added_to_cart', $product_id);
+
+        if ('yes' === get_option('woocommerce_cart_redirect_after_add')) {
+            wc_add_to_cart_message(array($product_id => $quantity), true);
+        }
+
+        WC_AJAX :: get_refreshed_fragments();
+    } else {
+
+        $data = array(
+            'error' => true,
+            'product_url' => apply_filters('woocommerce_cart_redirect_after_error', get_permalink($product_id), $product_id));
+
+        echo wp_send_json($data);
+    }
+
+    wp_die();
 }
 
 /*

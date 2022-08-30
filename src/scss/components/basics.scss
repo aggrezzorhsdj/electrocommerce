@@ -34,3 +34,19 @@
     max-width: $ec-xl;
   }
 }
+
+.ec-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 20px;
+    background-color: $cloudly;
+    color: $darker;
+    margin-right: $ec-margin-s;
+    border-radius: $ec-border-radius;
+  }
+}

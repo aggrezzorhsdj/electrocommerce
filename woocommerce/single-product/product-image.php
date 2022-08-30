@@ -36,20 +36,46 @@ $wrapper_classes   = apply_filters(
 	)
 );
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-	<figure class="woocommerce-product-gallery__wrapper">
-		<?php
-		if ( $post_thumbnail_id ) {
-			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
-		} else {
-			$html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
-			$html .= '</div>';
-		}
 
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-
-		do_action( 'woocommerce_product_thumbnails' );
-		?>
-	</figure>
+<?php $attachment_ids = $product->get_gallery_image_ids();?>
+<div class="row">
+    <div class="col">
+        <div thumbsSlider="" class="swiper ec-product-gallery gallery-thumbs">
+            <!-- Additional required wrapper -->
+            <button class="ec-carousel__arrow swiper-prev btn btn-light" data-glide-dir="<">
+                <i class="bi bi-arrow-up"></i>
+            </button>
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <?php foreach ($attachment_ids as $attachment_id) : ?>
+                    <div class="swiper-slide">
+                        <?php echo wp_get_attachment_image($attachment_id, 'thumbnail')?>
+                    </div>
+                <?php endforeach;?>
+            </div>
+            <button class="ec-carousel__arrow swiper-next btn btn-light" data-glide-dir=">">
+                <i class="bi bi-arrow-down"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="swiper ec-product-gallery gallery-top">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper pswp-gallery">
+                <!-- Slides -->
+                <?php foreach ($attachment_ids as $attachment_id) : ?>
+                <?php list( $src, $width, $height ) = wp_get_attachment_image_src($attachment_id, 'large');?>
+                    <a
+                        href="<?php echo $src?>" class="swiper-slide"
+                        data-pswp-width="<?php echo $width;?>"
+                        data-pswp-height="<?php echo $height;?>"
+                        target="_blank"
+                    >
+                        <img src="<?php echo $src?>" width="<?php echo $width;?>" height="<?php echo $height;?>"/>
+                    </a>
+                <?php endforeach;?>
+            </div>
+        </div>
+    </div>
 </div>
+

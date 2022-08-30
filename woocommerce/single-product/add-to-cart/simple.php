@@ -35,6 +35,9 @@ if ( $product->is_in_stock() ) : ?>
 
             <div class="row align-items-center">
                 <div class="col">
+                    <?php woocommerce_template_single_price()?>
+                </div>
+                <div class="col">
                     <?php
                     do_action( 'woocommerce_before_add_to_cart_quantity' );
 
@@ -48,9 +51,6 @@ if ( $product->is_in_stock() ) : ?>
 
                     do_action( 'woocommerce_after_add_to_cart_quantity' );
                     ?>
-                </div>
-                <div class="col">
-                    <?php woocommerce_template_single_price()?>
                 </div>
                 <div class="col">
                     <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button btn btn-primary btn-lg alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
