@@ -1,0 +1,74 @@
+{
+  "name": "underscores",
+  "version": "1.0.0",
+  "description": "Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.",
+  "author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "browserslist": [
+    "> 0.25%, not dead"
+  ],
+  "homepage": "https://github.com/Automattic/_s#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/_s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/_s/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@glidejs/glide": "^3.5.2",
+    "@popperjs/core": "^2.11.5",
+    "@wordpress/scripts": "^19.2.2",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "css-loader": "^6.7.1",
+    "dir-archiver": "^1.1.1",
+    "eslint": "^8.17.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^7.0.1",
+    "rtlcss": "^3.5.0",
+    "sass": "^1.52.3",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.2.5",
+    "vinyl-source-stream": "^2.0.0",
+    "webpack": "^5.65.0",
+    "webpack-dev-server": "^4.6.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "build": "webpack --env production",
+    "dev": "webpack --env watch"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "bootstrap-icons": "^1.8.3",
+    "bootstrap-select": "^1.13.18",
+    "html-webpack-plugin": "^5.5.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "webpack-cli": "^4.9.1"
+  }
+}

@@ -1,0 +1,96 @@
+@import "common/colors";
+
+//vendors
+@import "../../node_modules/bootstrap/scss/functions";
+
+$theme-colors: (
+        "primary": $dark-blue,
+        "deep-blue": $deep-blue,
+        "light": $snow,
+        "hurma": $hurma,
+        "secondary": $cloudly
+);
+
+$input-height: calc(3rem + 2px);
+$input-padding-y: 0.8rem;
+
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+
+// Layout & components
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+
+$bootstrap-icons-font-src: url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2?08efbba7c53d8c5413793eecb19b20bb") format("woff2"),
+url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7c53d8c5413793eecb19b20bb") format("woff") !default;
+
+@import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+
+//plugins
+@import "~@glidejs/glide/dist/css/glide.core.min.css";
+@import "~bootstrap-select/sass/bootstrap-select";
+
+@import "custom/bootstrap/buttons";
+@import "custom/bootstrap/dropdown";
+@import "custom/bootstrap/modal";
+
+@import "custom/select2/select2";
+
+.bi {
+  font-size: 1rem;
+}
+@import "custom/plugins/aws";
+@import "custom/plugins/woocommerce";
+
+// common
+@import "common/fonts";
+
+//components
+@import "components/header";
+@import "components/sliders";
+@import "components/footer";
+@import "components/links";
+@import "components/buttons";
+@import "components/catalog";
+@import "components/shop";
+@import "components/icons";
+@import "components/breadcrumbs";
+@import "components/basics";
+@import "components/form";
+
+body {
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: 'PT Sans', 'Roboto', sans-serif;
+  background-color: $cloudly;
+}

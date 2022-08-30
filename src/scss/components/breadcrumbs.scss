@@ -1,0 +1,18 @@
+@import "../common/vars";
+
+.ec-breadcrumbs {
+  display: flex;
+  white-space: nowrap;
+  overflow-y: auto;
+  align-items: center;
+
+  &__separator {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link, &__separator {
+    margin: $ec-margin-s $ec-margin-s $ec-margin-s 0;
+
+  }
+}

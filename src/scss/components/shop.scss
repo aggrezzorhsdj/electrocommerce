@@ -1,0 +1,115 @@
+@import "../common/vars";
+@import "../common/colors";
+
+.ec-shop {
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &-counter {
+      margin-left: $ec-margin-s;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    justify-content: flex-end;
+
+    &-btn:not(:last-child) {
+      margin-right: $ec-margin-s;
+    }
+  }
+
+  &__product {
+    background-color: var(--ec-shop-product-bg, $snow);
+    padding: var(--ec-shop-product-padding, $ec-padding-xl);
+    box-shadow: $ec-shop-product-shadow;
+    border-radius: $ec-border-radius;
+    display: flex;
+    flex-direction: column;
+
+    &._list {
+      flex-direction: row;
+    }
+
+    &-item {
+      margin: var(--ec-product-item-margin, 0 0 $ec-margin-s);
+    }
+
+    &-link {
+      display: block;
+    }
+
+    &._list &-link {
+      display: flex;
+      flex: 1;
+    }
+
+    &._list &-link-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &._list &-link-content-info {
+      display: flex;
+      align-items: center;
+
+      div:first-child {
+        margin-right: $ec-margin-s;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &._list &-bottom {
+      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      div:first-child {
+        margin-bottom: $ec-margin-s;
+      }
+    }
+
+    &-price {
+      &-value.price {
+        color: $black-hole;
+      }
+    }
+
+    &-thumbnail {
+      .attachment-woocommerce_thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &._list &-thumbnail {
+      flex: 0 0 180px;
+      max-height: 150px;
+      margin-right: $ec-padding-xxl;
+      --ec-product-item-margin: 0;
+    }
+
+    &-rating {
+      &-wrapper {
+        padding: 5px;
+        border-radius: $ec-border-radius;
+        border: 1px solid $cloudly;
+        display: inline-flex;
+        align-items: center;
+
+        .star-rating {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+}

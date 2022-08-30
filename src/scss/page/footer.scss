@@ -1,0 +1,43 @@
+@import "../common/vars";
+
+.ec-footer {
+  background-color: $deep-blue;
+  padding: $ec-margin-xxxl 0;
+  color: $snow;
+
+  &__title {
+    margin-bottom: $ec-margin-xxl;
+  }
+
+  &__column {
+    &-item {
+      margin-bottom: $ec-margin-s;
+
+      .ec-button {
+        --ec-button-padding: $ec-button-md-padding-y 0;
+      }
+    }
+  }
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    .menu-item {
+      list-style: none;
+      margin-right: $ec-margin-s;
+      margin-bottom: $ec-margin-s;
+
+      a {
+        color: $snow;
+
+        transition: $ec-hover-transition;
+        &:hover {
+          color: $fog-sky;
+        }
+      }
+    }
+  }
+}

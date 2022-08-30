@@ -1,0 +1,84 @@
+@import "../common/vars";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+.ec-header {
+  box-shadow: $ec-shadow-1;
+  background-color: $snow;
+  position: relative;
+  height: $ec-header-height;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:not(:last-child) {
+      margin-right: $grid-gutter-width;
+    }
+  }
+
+  &__search {
+    flex: 1;
+
+    .ec-ajax-search {
+      width: 100%;
+    }
+  }
+
+  &__catalog {
+    position: relative;
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      padding: $btn-padding-x-lg $btn-padding-y-lg;
+      cursor: pointer;
+      transition: $ec-hover-transition;
+
+      &:hover {
+        background-color: $cloudly;
+      }
+
+      &-icon {
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &-container {
+      position: absolute;
+      top: $ec-header-height;
+      left: 0;
+      width: 320px;
+      background-color: $snow;
+      box-shadow: $ec-shadow-1;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      display: none;
+      z-index: 10;
+
+      &._active {
+        display: block;
+      }
+    }
+  }
+
+  &-top {
+    background-color: $primary;
+    color: $snow;
+  }
+}

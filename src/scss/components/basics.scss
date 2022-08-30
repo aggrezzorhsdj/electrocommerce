@@ -1,0 +1,36 @@
+@import "../common/vars";
+
+.ec-container {
+  margin: 0 auto;
+  padding: 0 $ec-gutter;
+}
+
+.ec-section {
+  padding: $ec-padding-xl 0;
+}
+
+.ec-counter {
+  background-color: $smoke;
+  padding: $ec-margin-m;
+  color: $black-hole;
+  border-radius: $ec-border-radius;
+}
+
+.ec-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $white;
+  opacity: .65;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: $ec-xl) {
+  .ec-container {
+    max-width: $ec-xl;
+  }
+}

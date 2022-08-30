@@ -1,0 +1,41 @@
+.woocommerce {
+  div.product span.price del,
+  div.product span.price ins {
+    display: block;
+  }
+
+  div.product span.price {
+    font-size: $h4-font-size;
+    font-weight: 600;
+  }
+
+  div.product span.price del {
+    font-size: 12px;
+  }
+
+  div.product span.price ins {
+    font-size: $h4-font-size;
+  }
+
+  div.product span.price {
+    color: $black-hole;
+  }
+
+  .add_to_cart_button {
+    &.loading {
+      opacity: .5;
+    }
+  }
+
+  .star-rating {
+    float: none;
+
+    &::before {
+      content: "SSSSS";
+    }
+
+    span::before {
+      color: $hurma;
+    }
+  }
+}

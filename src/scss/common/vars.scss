@@ -1,0 +1,56 @@
+@import "colors";
+
+// margins, gutters, paddings
+$ec-gutter: 15px;
+$ec-padding-m: 5px;
+$ec-padding-l: 8px;
+$ec-padding-s: 10px;
+$ec-padding-xl: 18px;
+$ec-padding-xxl: 32px;
+$ec-padding-xxxl: 40px;
+$ec-margin-m: 5px;
+$ec-margin-l: 8px;
+$ec-margin-s: 12px;
+$ec-margin-xl: 18px;
+$ec-margin-xxl: 32px;
+$ec-margin-xxxl: 40px;
+
+// transitions, shadows
+$ec-shadow-1: 0 1px 24px 1px rgba($black-hole, 0.14);
+$ec-shadow-2: 0 0 4px 2px rgba($black-hole, 0.14);
+$ec-hover-transition: .2s ease;
+$ec-focus-transition: .1s ease-in-out;
+$ec-active-scale: 0.95;
+$ec-shop-product-shadow: 0 0 5px rgba($black-hole, 0.25);
+
+//borders
+$ec-border-radius: 6px;
+$ec-border: 1px;
+
+//sizes
+$ec-xl: 1200px;
+$ec-lg: 992px;
+$ec-lg: 768px;
+$ec-sm: 576px;
+
+//heights
+$ec-header-height: 60px;
+
+//buttons
+$ec-button-lg-padding-x: 40px;
+$ec-button-lg-padding-y: 10px;
+$ec-button-md-padding-x: 32px;
+$ec-button-md-padding-y: 6px;
+$ec-button-sm-padding-x: 20px;
+$ec-button-sm-padding-y: 5px;
+$ec-button-md-height: 32px;
+
+// typography
+$ec-font-regular-size: 14px;
+$ec-font-focus-size: 10px;
+
+// header
+$ec-header-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.14);
+
+// buttons
+$ec-button-nav-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);

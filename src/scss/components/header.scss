@@ -1,0 +1,31 @@
+@import "../custom/bootstrap/variables";
+@import "../common/colors";
+@import "../common/vars";
+
+.ec-header {
+  box-shadow: $ec-header-box-shadow;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: $snow;
+  &__menu {
+    &-toggler {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: $ec-border-radius;
+      color: $primary;
+
+      &.show {
+        background-color: $deep-blue;
+        color: $snow;
+      }
+
+      .bi {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

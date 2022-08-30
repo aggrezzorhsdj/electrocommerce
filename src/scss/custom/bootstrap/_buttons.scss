@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/variables";
+@import "../../common/colors";
+
+.btn-link {
+  text-decoration: none;
+  &._light {
+    color: #{$white};
+  }
+}
+
+.btn {
+  &-secondary {
+    --bs-btn-bg: #{$snow};
+  }
+}

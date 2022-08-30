@@ -1,0 +1,16 @@
+@import "../common/vars";
+
+.ec-nav {
+  display: flex;
+
+  li {
+    list-style: none;
+    &:not(:last-child) {
+      margin-right: $ec-margin-xl;
+    }
+
+    .ec-button {
+      --ec-button-padding: $ec-button-lg-padding-y $ec-padding-l;
+    }
+  }
+}

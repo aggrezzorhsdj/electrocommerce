@@ -1,0 +1,25 @@
+@import "../common/vars";
+
+@mixin ec-icon($n, $c) {
+  &._#{$n} {
+    i {
+      color: #{$c};
+    }
+
+    .ec-icons__text {
+      color: $c;
+    }
+  }
+}
+
+.ec-icons {
+  display: flex;
+  align-items: center;
+  &__text {
+    margin-left: $ec-margin-s;
+  }
+
+  @include ec-icon('black-hole', $black-hole);
+
+  @include ec-icon('success', $success);
+}

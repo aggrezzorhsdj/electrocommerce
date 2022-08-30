@@ -1,0 +1,44 @@
+@import "../common/vars";
+
+.ec-carousel {
+  &__slide {
+    height: 384px;
+    padding: $ec-gutter;
+  }
+
+  &__link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: $ec-border-radius;
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__arrows {
+    position: absolute;
+    opacity: 0;
+    transition: $ec-hover-transition;
+    top: 50%;
+    left: $ec-gutter * 2;
+    right: $ec-gutter * 2 ;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  &__arrow {
+    box-shadow: $ec-button-nav-shadow;
+  }
+
+  &:hover &__arrows {
+    opacity: 1;
+  }
+}

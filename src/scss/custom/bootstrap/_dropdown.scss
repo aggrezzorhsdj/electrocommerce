@@ -1,0 +1,14 @@
+@import "../../common/vars";
+
+.dropdown {
+  &-menu {
+    --bs-dropdown-border-width: 0;
+    --bs-dropdown-item-padding-x: #{$ec-padding-xl};
+    --bs-dropdown-item-padding-y: #{$ec-padding-s};
+    --bs-dropdown-link-active-bg: #{$primary};
+    box-shadow: $ec-shadow-1;
+    .bi {
+      margin-right: 10px;
+    }
+  }
+}
