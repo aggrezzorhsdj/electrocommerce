@@ -1,1 +1,1 @@
-#Woocommerce Wordpress Theme Electrocommerce
+# Woocommerce Wordpress Theme Electrocommerce
