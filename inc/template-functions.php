@@ -269,9 +269,8 @@ function electrocommerce_form_field( $key, $args, $value = null ) {
                 $field .= '<input type="hidden" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" value="' . current( array_keys( $countries ) ) . '" ' . implode( ' ', $custom_attributes ) . ' class="country_to_state" readonly="readonly" />';
 
             } else {
-                $data_label = ! empty( $args['label'] ) ? 'data-label="' . esc_attr( $args['label'] ) . '"' : '';
 
-                $field = '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="form-control country_to_state country_select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . ' data-placeholder="' . esc_attr( $args['placeholder'] ? $args['placeholder'] : esc_attr__( 'Select a country / region&hellip;', 'woocommerce' ) ) . '" ' . $data_label . ' style="width:100%;"><option value="">' . esc_html__( 'Select a country / region&hellip;', 'woocommerce' ) . '</option>';
+                $field = '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="form-control country_to_state country_select ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" ' . implode( ' ', $custom_attributes ) . ' style="width:100%;"><option value="">' . esc_html__( 'Select a country / region&hellip;', 'woocommerce' ) . '</option>';
 
                 foreach ( $countries as $ckey => $cvalue ) {
                     $field .= '<option value="' . esc_attr( $ckey ) . '" ' . selected( $value, $ckey, false ) . '>' . esc_html( $cvalue ) . '</option>';
@@ -309,7 +308,7 @@ function electrocommerce_form_field( $key, $args, $value = null ) {
 
             } else {
 
-                $field .= '<input type="text" class="form-control ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" value="' . esc_attr( $value ) . '"  placeholder="' . esc_attr( $args['placeholder'] ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" ' . implode( ' ', $custom_attributes ) . ' data-input-classes="' . esc_attr( implode( ' ', $args['input_class'] ) ) . '"/>';
+                $field .= '<input type="text" class="form-control ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" value="' . esc_attr( $value ) . '"  placeholder="' . esc_attr( $args['placeholder'] || $args['label'] ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" ' . implode( ' ', $custom_attributes ) . ' data-input-classes="' . esc_attr( implode( ' ', $args['input_class'] ) ) . '"/>';
 
             }
 
@@ -419,8 +418,17 @@ function electrocommerce_form_field( $key, $args, $value = null ) {
 
 function electrocoommerce_loginout_link() {
     if (is_user_logged_in()) : ?>
-        <a class="btn btn-primary" href="<?php echo wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) )?>">Log Out</a>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <?php echo __('Account', 'woocommerce');?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) );?>"><?php echo __('Profile', 'woocommerce');?></a>
+                <a class="dropdown-item" href="<?php echo wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) )?>"><?php echo __('Log Out', 'woocommerce');?></a>
+            </div>
+        </div>
     <?php else:?>
+
         <?php electrocommerce_modal_button('loginout', __('Log In', 'woocommerce'));?>
     <?php endif;?>
     <?php
@@ -444,7 +452,9 @@ function electrocommerce_modal($args) {
                         <h5 class="modal-title" id="<?php echo $id?>Title"><?php echo $caption?></h5>
                         <?php endif;?>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">
+                                <i class="bi bi-x-lg"></i>
+                            </span>
                         </button>
                     </div>
                 <div class="modal-body">

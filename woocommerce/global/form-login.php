@@ -24,7 +24,7 @@ if ( is_user_logged_in() ) {
 }
 
 ?>
-<form class="woocommerce-form woocommerce-form-login login" method="post" <?php echo ( $hidden ) ? 'style="display:none;"' : ''; ?>>
+<form class="" method="post" <?php echo ( $hidden ) ? 'style="display:none;"' : ''; ?>>
 
 	<?php do_action( 'woocommerce_login_form_start' ); ?>
 
@@ -52,10 +52,11 @@ if ( is_user_logged_in() ) {
         <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'woocommerce' ); ?></a>
     </div>
 
-    <button type="submit" class="woocommerce-button button woocommerce-form-login__submit btn btn-primary btn-lg w-100" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php esc_html_e( 'Login', 'woocommerce' ); ?></button>
+    <button type="submit" class="btn btn-primary btn-lg w-100" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php esc_html_e( 'Login', 'woocommerce' ); ?></button>
     <?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
     <input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ); ?>" />
-
+    <div class="text-center mt-3 mb-3"><?php echo __('or', 'electrocommerce')?></div>
+    <a href="<?php echo get_permalink( get_page_by_path('my-account'))?>" class="btn btn-secondary w-100"><?php echo __('Sign In', 'electrocommerce')?></a>
 	<div class="clear"></div>
 
 	<?php do_action( 'woocommerce_login_form_end' ); ?>

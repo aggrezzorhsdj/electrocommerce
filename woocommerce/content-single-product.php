@@ -35,7 +35,7 @@ if ( post_password_required() ) {
     <div class="container">
         <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-            <div class="ec-product__summary ec-product__wrapper">
+            <div class="ec-product__summary ec-content-wrapper">
                 <div class="row">
                     <div class="col-md-6">
                         <?php

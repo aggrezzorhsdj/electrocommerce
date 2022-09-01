@@ -22,7 +22,7 @@ if ( ! wp_doing_ajax() ) {
 }
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
-	<div class="ec-checkout__wrapper">
+	<div class="ec-content-wrapper">
         <?php if ( WC()->cart->needs_payment() ) : ?>
             <ul class="wc_payment_methods payment_methods methods">
                 <?php

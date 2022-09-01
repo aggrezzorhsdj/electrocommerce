@@ -27,14 +27,14 @@ wp_footer();
                     </h2>
                     <?php if($phone = get_theme_mod('ec_contact_phone')): ?>
                         <div class="ec-footer__column-item">
-                            <a class="link-light" href="tel:<?php echo $phone;?>">
+                            <a class="text-light" href="tel:<?php echo $phone;?>">
                                 <i class="bi bi-telephone"></i> <?php echo $phone?>
                             </a>
                         </div>
                     <?php endif; ?>
                     <?php if($address = get_theme_mod('ec_contact_address')): ?>
                         <div class="ec-footer__column-item">
-                            <a class="link-light" href="https://yandex.ru/maps/?text=<?php echo $address;?>">
+                            <a class="text-light" href="https://yandex.ru/maps/?text=<?php echo $address;?>">
                                 <i class="bi bi-geo-alt"></i>
                                 <?php echo $address;?>
                             </a>
@@ -62,7 +62,7 @@ wp_footer();
                         </div>
                     <?php endif; ?>
                     <div class="ec-footer__column-item">
-                        <p><?php echo date("Y");?>© Копирование контента и размещение на других сайтах запрещено.</p>
+                        <p><?php echo date("Y");?>© <?php echo __('All rights reserved', "electrocommerce");?></p>
                     </div>
                 </div>
             <?php endif;?>

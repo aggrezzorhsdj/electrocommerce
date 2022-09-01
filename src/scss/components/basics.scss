@@ -1,5 +1,10 @@
 @import "../common/vars";
 
+main {
+  min-height: calc(100vh - 565px);
+  padding: $ec-padding-xl 0;
+}
+
 .ec-container {
   margin: 0 auto;
   padding: 0 $ec-gutter;
@@ -49,4 +54,12 @@
     margin-right: $ec-margin-s;
     border-radius: $ec-border-radius;
   }
+}
+
+.ec-content-wrapper {
+  background-color: $snow;
+  border-radius: $ec-border-radius;
+  box-shadow: $ec-shadow-2;
+  padding: $ec-padding-xl;
+  margin-bottom: $ec-margin-xl;
 }

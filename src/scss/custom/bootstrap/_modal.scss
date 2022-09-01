@@ -33,4 +33,15 @@
   &-md {
     max-width: 340px;
   }
+
+  &-content {
+    box-shadow: $ec-shadow-1;
+  }
+
+  &-header {
+    .close i {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
 }

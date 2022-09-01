@@ -20,6 +20,11 @@ $headings-font-family: 'PT Sans', 'Roboto', sans-serif;
 $btn-padding-y-lg: $ec-button-lg-padding-y;
 $btn-padding-x-lg: $ec-button-lg-padding-x;
 $btn-font-size-lg: 14px;
+$modal-header-border-width: 0;
+$modal-content-border-radius: 6px;
+$modal-backdrop-bg: $darker;
+$modal-header-padding: $ec-padding-xl;
+$modal-inner-padding: 1.28rem;
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -104,6 +109,7 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 @import "components/product";
 @import "components/cart";
 @import "components/checkout";
+@import "components/account";
 
 body {
   font-size: 14px;

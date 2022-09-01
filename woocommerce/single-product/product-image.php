@@ -35,9 +35,12 @@ $wrapper_classes   = apply_filters(
 		'images',
 	)
 );
+
+$attachment_ids = $product->get_gallery_image_ids();
+$attachment_ids = count($attachment_ids) ? $attachment_ids : [$post_thumbnail_id];
+
 ?>
 
-<?php $attachment_ids = $product->get_gallery_image_ids();?>
 <div class="row">
     <div class="col">
         <div thumbsSlider="" class="swiper ec-product-gallery gallery-thumbs">

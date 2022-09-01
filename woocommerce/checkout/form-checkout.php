@@ -33,10 +33,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-        <div class="ec-checkout__wrapper">
+        <div class="ec-content-wrapper">
             <?php do_action( 'woocommerce_checkout_billing' ); ?>
         </div>
-        <div class="ec-checkout__wrapper">
+        <div class="ec-content-wrapper">
             <?php do_action( 'woocommerce_checkout_shipping' ); ?>
         </div>
 
@@ -46,7 +46,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	
 	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 	
-	<div class="ec-checkout__wrapper">
+	<div class="ec-content-wrapper">
         <h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
 
         <?php do_action( 'woocommerce_checkout_before_order_review' ); ?>

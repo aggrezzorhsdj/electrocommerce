@@ -28,7 +28,8 @@ $allowed_html = array(
 );
 ?>
 
-<p>
+<div class="ec-content-wrapper">
+    <p>
 	<?php
 	printf(
 		/* translators: 1: user display name 2: logout url */
@@ -79,3 +80,5 @@ $allowed_html = array(
 	do_action( 'woocommerce_after_my_account' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+?>
+</div>

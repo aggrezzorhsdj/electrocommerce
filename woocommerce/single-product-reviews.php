@@ -24,7 +24,7 @@ if ( ! comments_open() ) {
 }
 
 ?>
-<div id="reviews" class="woocommerce-Reviews">
+<div id="reviews" class="">
 	<div id="comments" class="ec-product-reviews">
 		<div class="ec-product-reviews__header">
             <h2 class="mb-4">
@@ -44,7 +44,7 @@ if ( ! comments_open() ) {
                 <?php echo __('Add review', 'electrocommerce') ?>
             </button>
         </div>
-
+        <?php if ($count && wc_review_ratings_enabled()) :?>
 		<div class="row">
             <div class="col-md-3">
                 <div class="row">
@@ -99,6 +99,18 @@ if ( ! comments_open() ) {
                 <?php endif; ?>
             </div>
         </div>
+        <?php else:?>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="ec-product-reviews__empty">
+                <div class="mb-4 ec-product-reviews__empty-icon">
+                    <i class="bi bi-chat-left-text"></i>
+                </div>
+                <div class="ec-product-reviews__empty-text h3">
+                    <?php echo __('This product has no reviews yet, but you can be the first', 'electrocommerce')?>
+                </div>
+            </div>
+        </div>
+        <?php endif;?>
 	</div>
     <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
