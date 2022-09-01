@@ -32,13 +32,15 @@ defined( 'ABSPATH' ) || exit;
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
 			<div class="woocommerce-shipping-fields__field-wrapper">
-				<?php
-				$fields = $checkout->get_checkout_fields( 'shipping' );
+				<div class="row">
+                    <?php
+                    $fields = $checkout->get_checkout_fields( 'shipping' );
 
-				foreach ( $fields as $key => $field ) {
-					woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
-				}
-				?>
+                    foreach ( $fields as $key => $field ) {
+                        electrocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+                    }
+                    ?>
+                </div>
 			</div>
 
 			<?php do_action( 'woocommerce_after_checkout_shipping_form', $checkout ); ?>
@@ -59,9 +61,11 @@ defined( 'ABSPATH' ) || exit;
 		<?php endif; ?>
 
 		<div class="woocommerce-additional-fields__field-wrapper">
-			<?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
-				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-			<?php endforeach; ?>
+			<div class="row">
+                <?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
+                    <?php electrocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+                <?php endforeach; ?>
+            </div>
 		</div>
 
 	<?php endif; ?>

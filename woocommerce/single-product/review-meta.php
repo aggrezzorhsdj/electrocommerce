@@ -29,17 +29,18 @@ if ( '0' === $comment->comment_approved ) { ?>
 	</p>
 
 <?php } else { ?>
+    <div class="ec-product-reviews__meta-wrapper">
+        <div class="h4"><?php comment_author(); ?></div>
+        <div>
+            <?php
+            if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
+                echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
+            }
 
-	<p class="meta">
-		<strong class="woocommerce-review__author"><?php comment_author(); ?> </strong>
-		<?php
-		if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
-			echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
-		}
-
-		?>
-		<span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></time>
-	</p>
+            ?>
+            <div class="ec-product-reviews__meta-date mb-2" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></div>
+        </div>
+    </div>
 
 	<?php
 }

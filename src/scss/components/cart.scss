@@ -1,0 +1,37 @@
+.ec-cart {
+  &__item {
+    position: relative;
+    background-color: $snow;
+    border-radius: $ec-border-radius;
+    box-shadow: $ec-shadow-2;
+    padding: $ec-padding-xl $ec-padding-xl*3 $ec-padding-xl $ec-padding-xl;
+    margin-bottom: $ec-margin-xl;
+
+    &:hover {
+      .ec-cart__remove {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__remove {
+    opacity: 0;
+    transition: $ec-hover-transition;
+    position: absolute;
+    right: $ec-padding-xl;
+    top: $ec-padding-xl;
+  }
+
+  &__totals {
+    &-content {
+      background-color: $snow;
+      padding: $ec-padding-xl;
+      border-radius: $ec-border-radius;
+      box-shadow: $ec-shadow-2;
+    }
+
+    &-item {
+      margin-bottom: $ec-margin-xl;
+    }
+  }
+}

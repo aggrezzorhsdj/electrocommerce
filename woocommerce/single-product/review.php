@@ -25,31 +25,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div id="comment-<?php comment_ID(); ?>" class="comment_container">
 
-		<?php
-		/**
-		 * The woocommerce_review_before hook
-		 *
-		 * @hooked woocommerce_review_display_gravatar - 10
-		 */
-		do_action( 'woocommerce_review_before', $comment );
-		?>
+		<div class="row mb-4">
+            <div class="ec-product-reviews__gravatar">
+                <?php
+                /**
+                 * The woocommerce_review_before hook
+                 *
+                 * @hooked woocommerce_review_display_gravatar - 10
+                 */
+                do_action( 'woocommerce_review_before', $comment );
+                ?>
+            </div>
+            <div class="col">
+                <div class="ec-product-reviews__meta">
+                    <?php
+                    /**
+                     * The woocommerce_review_meta hook.
+                     *
+                     * @hooked woocommerce_review_display_meta - 10
+                     */
+                    do_action( 'woocommerce_review_meta', $comment );
+                    ?>
+                </div>
+                <div class="ec-shop__product-rating-wrapper">
+                    <?php
+                    /**
+                     * The woocommerce_review_before_comment_meta hook.
+                     *
+                     * @hooked woocommerce_review_display_rating - 10
+                     */
+                    do_action( 'woocommerce_review_before_comment_meta', $comment );
+                    ?>
+                </div>
+            </div>
+        </div>
 
-		<div class="comment-text">
+		<div class="ec-product-reviews__text">
 
 			<?php
-			/**
-			 * The woocommerce_review_before_comment_meta hook.
-			 *
-			 * @hooked woocommerce_review_display_rating - 10
-			 */
-			do_action( 'woocommerce_review_before_comment_meta', $comment );
-
-			/**
-			 * The woocommerce_review_meta hook.
-			 *
-			 * @hooked woocommerce_review_display_meta - 10
-			 */
-			do_action( 'woocommerce_review_meta', $comment );
 
 			do_action( 'woocommerce_review_before_comment_text', $comment );
 

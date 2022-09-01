@@ -70,7 +70,7 @@ if ( post_password_required() ) {
                 </div>
             </div>
 
-            <div class="ec-product__tabs ec-product__wrapper">
+            <div class="ec-product__tabs">
                 <?php
                 /**
                  * Hook: woocommerce_after_single_product_summary.

@@ -64,8 +64,24 @@
 				<?php aws_get_search_form( true ); ?>
             </div>
             <div class="col justify-content-end d-flex">
-                <?php electrocommerce_cart_html()?>
+                <div class="ec-header__toolbar">
+                    <div class="ec-header__toolbar-item">
+                        <?php electrocommerce_cart_html()?>
+                    </div>
+                    <div class="ec-header__toolbar-item">
+                        <?php electrocoommerce_loginout_link()?>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
+
+<?php electrocommerce_modal(array(
+    'id' => 'loginout',
+    'content' => 'woocommerce_login_form',
+    'content_type' => 'function',
+    'caption' => __('Log In', 'woocommerce'),
+    'classes_dialog' => 'modal-dialog-centered modal-md'
+));?>

@@ -31,14 +31,16 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-	<div class="woocommerce-billing-fields__field-wrapper">
-		<?php
-		$fields = $checkout->get_checkout_fields( 'billing' );
+	<div class="woocommerce-billing-fields__field-wrapper ec-checkout__billing">
+		<div class="row">
+            <?php
+            $fields = $checkout->get_checkout_fields( 'billing' );
 
-		foreach ( $fields as $key => $field ) {
-			woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
-		}
-		?>
+            foreach ( $fields as $key => $field ) {
+                electrocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+            }
+            ?>
+        </div>
 	</div>
 
 	<?php do_action( 'woocommerce_after_checkout_billing_form', $checkout ); ?>

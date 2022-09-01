@@ -1,0 +1,12 @@
+.ec-checkout {
+  &__wrapper {
+    background-color: $snow;
+    border-radius: $ec-border-radius;
+    box-shadow: $ec-shadow-2;
+    padding: $ec-padding-xl;
+    margin-bottom: $ec-margin-xl;
+  }
+
+  &__billing {
+  }
+}

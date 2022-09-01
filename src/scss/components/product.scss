@@ -7,3 +7,62 @@
     border-radius: $ec-border-radius;
   }
 }
+
+.ec-product-reviews {
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__gravatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .avatar {
+      object-fit: cover;
+      background-size: cover;
+    }
+  }
+
+  &__stat {
+    &-rated {
+      font-size: 42px;
+    }
+
+    &-lines {
+      &-line {
+        display: flex;
+        align-items: center;
+
+        &-value {
+          flex: 1;
+          position: relative;
+          height: 12px;
+          margin: 0 $ec-margin-l;
+
+          &-item {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            border-radius: $ec-border-radius;
+
+            &._empty {
+              width: 100%;
+              background-color: $low;
+            }
+
+            &._load {
+              background-color: $hurma;
+              z-index: 2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

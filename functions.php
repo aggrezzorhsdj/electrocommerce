@@ -187,10 +187,19 @@ remove_action( 'woocommerce_before_single_product_summary',  'woocommerce_show_p
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+
+
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 20 );
 
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+add_filter('woocommerce_review_gravatar_size', 'change_review_gravatar_size');
+function change_review_gravatar_size($comment) {
+    return 120;
+}
+
 function new_loop_shop_per_page( $cols ) {
 	$cols = 8;
 
@@ -266,6 +275,35 @@ function woocommerce_ajax_add_to_cart() {
     }
 
     wp_die();
+}
+
+add_action( 'woocommerce_login_form', 'redirect_user_to_checkout' );
+function redirect_user_to_checkout() {
+    $referer = get_permalink( get_page_by_path('my-account'));
+    if( $referer ) {
+        if(!is_account_page()) { ?>
+            <input type="hidden" name="redirect-user" value="<?php echo $referer; ?>"><?php
+        }
+    }
+}
+
+
+
+function custom_woocommerce_login_redirect( $redirect ) {
+    if( isset( $_POST['redirect-user'] ) ) {
+        $redirect = esc_url( $_POST['redirect-user'] );
+    }
+    return $redirect;
+}
+add_filter( 'woocommerce_login_redirect', 'custom_woocommerce_login_redirect' );
+
+add_action('wp_logout','auto_redirect_after_logout');
+
+function auto_redirect_after_logout(){
+
+    wp_redirect( home_url() );
+    exit();
+
 }
 
 /*

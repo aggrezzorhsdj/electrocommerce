@@ -16,6 +16,10 @@ $input-height: calc(3rem + 2px);
 $input-padding-y: 0.8rem;
 $headings-font-weight: 700;
 $btn-border-radius: $ec-border-radius;
+$headings-font-family: 'PT Sans', 'Roboto', sans-serif;
+$btn-padding-y-lg: $ec-button-lg-padding-y;
+$btn-padding-x-lg: $ec-button-lg-padding-x;
+$btn-font-size-lg: 14px;
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -68,6 +72,8 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 @import "custom/bootstrap/dropdown";
 @import "custom/bootstrap/modal";
 @import "custom/bootstrap/input-group";
+@import "custom/bootstrap/nav";
+@import "custom/bootstrap/position";
 @import "custom/bootstrap-input-spinner/bootstrap-input-spiner";
 
 @import "custom/select2/select2";
@@ -96,10 +102,12 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 @import "components/basics";
 @import "components/form";
 @import "components/product";
+@import "components/cart";
+@import "components/checkout";
 
 body {
   font-size: 14px;
   box-sizing: border-box;
-  font-family: 'PT Sans', 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: $low;
 }

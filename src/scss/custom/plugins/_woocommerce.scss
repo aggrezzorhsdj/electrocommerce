@@ -53,4 +53,52 @@
     float: none;
     width: auto;
   }
+
+  #reviews #comments ol.commentlist li img.avatar {
+    width: 100%;
+    float: none;
+  }
+
+  .cart-collaterals .cart_totals,
+  &-page .cart-collaterals .cart_totals {
+    float: none;
+    width: auto;
+  }
+
+  a.remove {
+    color: $black-hole !important;
+
+    &:hover {
+      color: $black-hole !important;
+      background: none;
+    }
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  form .form-row-last,
+  &-page form .form-row-last {
+    float: none;
+  }
+  form .form-row-first, &-page form .form-row-first {
+    float: none;
+  }
+
+  form .form-row-first, form .form-row-last,
+  &-page form .form-row-first, &-page form .form-row-last {
+    width: auto;
+  }
+
+  #payment #place_order,
+  &-page #payment #place_order {
+    float:none;
+  }
+
+  #add_payment_method #payment,
+  .woocommerce-cart #payment,
+  .woocommerce-checkout #payment {
+    background: transparent;
+  }
 }

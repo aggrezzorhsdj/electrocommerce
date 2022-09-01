@@ -3,7 +3,7 @@
 (function($){
     $(document).ready(function() {
         if ("select2" in $.fn) {
-            const $select2 = $('select.woocommerce-widget-layered-nav-dropdown').select2();
+            const $select2 = $('select.woocommerce-widget-layered-nav-dropdown,.country_select').select2();
             if ($select2.val()?.length) {
                 toggleSelect2Label($select2);
             }
