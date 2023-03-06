@@ -15,12 +15,48 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="yandex-verification" content="08ea5d3756084847" />
+    <?php
+        $page_id = '';
+        $title = '';
+        $description = '';
+        $keywords = '';
+        if (is_product()) {
+            $product = wc_get_product( get_the_ID() );
+            $title = get_the_title().' - '.get_bloginfo('name');
+            $description = $product->post->post_excerpt;
+            $terms = get_terms( 'product_tag' );
+            $term_array = array();
+            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+                foreach ( $terms as $term ) {
+                    $term_array[] = $term->name;
+                }
+            }
+            $keywords = count($term_array) ? implode(",", $term_array) : '';
+
+        } else if (is_shop()) {
+            $page_id = wc_get_page_id('shop');
+            $title = get_field('metatitle', $page_id);
+            $description = get_field('metadescription', $page_id);
+            $keywords = get_field('metakeywords', $page_id);
+        } else if (is_singular()) {
+            $title = get_field('metatitle', get_the_ID());
+            $description = get_field('metadescription', get_the_ID());
+            $keywords = get_field('metakeywords', get_the_ID());
+        }
+
+    ?>
+
+    <meta name="title" content="<?php echo $title?>"/>
+    <meta name="description" content="<?php echo $description?>"/>
+    <meta name="keywords" content="<?php echo $keywords?>"/>
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+<?php echo get_field('metatitle')?>
 <?php wp_body_open(); ?>
 <header>
     <div class="ec-header-top bg-primary">
@@ -82,6 +118,6 @@
     'id' => 'loginout',
     'content' => 'woocommerce_login_form',
     'content_type' => 'function',
-    'caption' => __('Log In', 'woocommerce'),
+    'caption' => __('Log In', 'electrocommerce'),
     'classes_dialog' => 'modal-dialog-centered modal-md'
 ));?>

@@ -66,7 +66,7 @@ if (is_product_category()) {
 
                         <button class="btn btn-primary ec-shop__panel-btn" data-toggle="modal" data-target="#filterModal">
                             <i class="bi bi-funnel"></i>
-                            <?php echo __('Filter', 'electrocommerce') ?>
+                            <?php echo esc_html_e('Filter', 'electrocommerce') ?>
                         </button>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ if (is_product_category()) {
                         ?>
                         <form method="get" action="<?php echo esc_url( $form_action )?>" class="woocommerce-widget-layered-nav-dropdown modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title"><?php _e('Filters', 'electrocommerce');?></h5>
+                                <h5 class="modal-title"><?php esc_html_e('Filters', 'electrocommerce');?></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -153,7 +153,7 @@ if (is_product_category()) {
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit" value="<?php echo esc_attr__( 'Apply', 'woocommerce' )?>"><?php echo esc_html__( 'Apply', 'woocommerce' )?></button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php _e('Close', 'electrocommerce')?></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php esc_html_e('Cancel', 'electrocommerce')?></button>
                             </div>
                         </form>
                     </div>

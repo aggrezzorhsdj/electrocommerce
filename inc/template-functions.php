@@ -173,7 +173,7 @@ function electrocommerce_cart_html() {
             $amount = WC()->cart->cart_contents_total + WC()->cart->tax_total;
         }
         ?>
-        <?php echo ($amount ? wc_price($amount) : __('Cart', 'electrocommerce'))?>
+        <?php echo ($amount ? wc_price($amount) : esc_html_e('Cart', 'woocommerce'))?>
         <?php if ($amount !== 0) : ?>
             <span class="ec-cart-count"><?php echo WC()->cart->get_cart_contents_count()?></span>
         <?php endif;?>
@@ -420,16 +420,16 @@ function electrocoommerce_loginout_link() {
     if (is_user_logged_in()) : ?>
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <?php echo __('Account', 'woocommerce');?>
+               <?php echo __('Account', 'electrocommerce');?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) );?>"><?php echo __('Profile', 'woocommerce');?></a>
-                <a class="dropdown-item" href="<?php echo wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) )?>"><?php echo __('Log Out', 'woocommerce');?></a>
+                <a class="dropdown-item" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) );?>"><?php echo __('Profile', 'electrocommerce');?></a>
+                <a class="dropdown-item" href="<?php echo wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) )?>"><?php echo __('Log Out', 'electrocommerce');?></a>
             </div>
         </div>
     <?php else:?>
 
-        <?php electrocommerce_modal_button('loginout', __('Log In', 'woocommerce'));?>
+        <?php electrocommerce_modal_button('loginout', __('Log In', 'electrocommerce'));?>
     <?php endif;?>
     <?php
 }

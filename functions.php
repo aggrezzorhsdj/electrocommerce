@@ -123,9 +123,9 @@ add_action( 'after_setup_theme', 'electrocommerce_content_width', 0 );
 function electrocommerce_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'electrocommerce' ),
+			'name'          => __( 'Sidebar', 'electrocommerce' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'electrocommerce' ),
+			'description'   => __( 'Add widgets here.', 'electrocommerce' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -321,7 +321,7 @@ function my_aws_searchbox_markup( $markup, $params ) {
     $labelEnd = strpos($markup, '</label>');
     $label = mb_substr($markup, $labelBegin, $labelEnd - $labelBegin + strlen('</label>'));
 
-    $inputBegin = strpos($markup, '<input type="search"');
+    /*$inputBegin = strpos($markup, '<input type="search"');
     $inputEnd = strpos($markup, '/>');
     $input = mb_substr($markup, $inputBegin, $inputEnd - $inputBegin + strlen('/>'));
 
@@ -341,7 +341,7 @@ function my_aws_searchbox_markup( $markup, $params ) {
 
     $aws_label = 'aws-search-label';
     $bs_label = 'form-label';
-    $markup = str_replace($aws_label, $bs_label, $markup);
+    $markup = str_replace($aws_label, $bs_label, $markup);*/
 
     return $markup;
 }

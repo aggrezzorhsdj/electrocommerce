@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-12-21 15:31+0000\n"
+"POT-Creation-Date: 2022-12-21 15:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: _s\n"
@@ -27,6 +27,7 @@ msgid ", "
 msgstr ""
 
 #: inc/template-functions.php:423
+msgctxt "Аккаунт"
 msgid "Account"
 msgstr ""
 
@@ -40,10 +41,6 @@ msgstr ""
 
 #: footer.php:65
 msgid "All rights reserved"
-msgstr ""
-
-#: woocommerce/archive-product.php:156
-msgid "Cancel"
 msgstr ""
 
 #: functions.php:54
@@ -60,6 +57,10 @@ msgstr ""
 
 #: inc/customizer.php:42
 msgid "Change header options here"
+msgstr ""
+
+#: woocommerce/archive-product.php:156
+msgid "Close"
 msgstr ""
 
 #: comments.php:68
@@ -192,7 +193,7 @@ msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
-#: header.php:86 inc/template-functions.php:432
+#: inc/template-functions.php:432
 msgid "Log In"
 msgstr ""
 
@@ -315,4 +316,8 @@ msgstr ""
 
 #: inc/customizer.php:110
 msgid "Whatsapp link"
+msgstr ""
+
+#: header.php:86
+msgid "Авторизация"
 msgstr ""
