@@ -18,4 +18,14 @@
       color: $black-hole;
     }
   }
+
+  &-bi-lg {
+    .btn-text {
+      display: none;
+
+      @media screen and (min-width: 992px) {
+        display: inline;
+      }
+    }
+  }
 }

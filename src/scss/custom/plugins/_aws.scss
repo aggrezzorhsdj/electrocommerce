@@ -63,6 +63,21 @@
   }
 
   &-search {
+    &-icon {
+      display: block;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &-field {
+      display: none !important;
+      @media screen and (min-width: 768px) {
+        display: block !important;
+      }
+    }
+
     &-result {
       margin-top: 2rem;
 

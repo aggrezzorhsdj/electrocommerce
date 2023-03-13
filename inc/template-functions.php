@@ -429,7 +429,7 @@ function electrocoommerce_loginout_link() {
         </div>
     <?php else:?>
 
-        <?php electrocommerce_modal_button('loginout', __('Log In', 'electrocommerce'));?>
+        <?php electrocommerce_modal_button('loginout', __('Log In', 'electrocommerce'), 'btn-bi-lg', 'bi-person');?>
     <?php endif;?>
     <?php
 }
@@ -476,10 +476,13 @@ function electrocommerce_modal($args) {
     <?php
 }
 
-function electrocommerce_modal_button($id_modal, $text, $classes = 'btn btn-primary') {
+function electrocommerce_modal_button($id_modal, $text, $classes = '', $icon = '') {
     ?>
-    <a role="button" href="#<?php echo $id_modal;?>" class="<?php echo $classes;?>" data-toggle="modal" data-target="#<?php echo $id_modal;?>">
-        <?php echo $text ?>
+    <a role="button" href="#<?php echo $id_modal;?>" class="btn btn-primary <?php echo $classes;?>" data-toggle="modal" data-target="#<?php echo $id_modal;?>">
+        <?php if ($icon) : ?>
+            <span><i class="bi <?php echo $icon;?>"></i></span>
+        <?php endif;?>
+        <span class="btn-text"><?php echo $text ?></span>
     </a>
     <?php
 }

@@ -320,7 +320,6 @@ function my_aws_searchbox_markup( $markup, $params ) {
     $labelBegin = strpos($markup, '<label');
     $labelEnd = strpos($markup, '</label>');
     $label = mb_substr($markup, $labelBegin, $labelEnd - $labelBegin + strlen('</label>'));
-
     /*$inputBegin = strpos($markup, '<input type="search"');
     $inputEnd = strpos($markup, '/>');
     $input = mb_substr($markup, $inputBegin, $inputEnd - $inputBegin + strlen('/>'));
@@ -343,7 +342,7 @@ function my_aws_searchbox_markup( $markup, $params ) {
     $bs_label = 'form-label';
     $markup = str_replace($aws_label, $bs_label, $markup);*/
 
-    return $markup;
+    return str_replace('<div class="aws-wrapper">', '<div class="aws-wrapper"><div class="aws-search-icon"></div>', $markup);
 }
 
 add_action('wp_ajax_ajax_get_products', 'ajax_get_products');

@@ -82,14 +82,14 @@
         <div class="row align-items-center">
             <div class="col">
                 <div class="row">
-                    <div class="col d-flex align-items-center">
+                    <div class="col-4 d-flex align-items-center">
                         <a class="ec-header__menu-toggler dropdown-toggle" href="#" id="catalogDropdown" data-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-list"></i>
                         </a>
                         <ul class="dropdown-menu catalog-menu" aria-labelledby="catalogDropdown">
 							<?php echo get_menu_items();?>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-4">
                         <div class="ec-header__item ec-header__logo">
 							<?php echo get_custom_logo()?>
                         </div>

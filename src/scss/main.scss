@@ -12,6 +12,13 @@ $theme-colors: (
         "secondary": $cloudly
 );
 
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+) !default;
+
 $input-height: calc(3rem + 2px);
 $input-padding-y: 0.8rem;
 $headings-font-weight: 700;

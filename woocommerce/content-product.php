@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <?php $columns = wc_get_loop_prop( 'columns' ); $type = $columns === 12 ? '_list' : ''?>
-<div <?php wc_product_class( "col-md-$columns $type mb-4", $product ); ?>>
+<div <?php wc_product_class( "col-xl-$columns col-md-6 $type mb-4", $product ); ?>>
     <div class="ec-shop__product">
         <a class="ec-shop__product-link" href="<?php echo get_permalink($product->ID)?>">
             <div class="ec-shop__product-thumbnail ec-shop__product-item">

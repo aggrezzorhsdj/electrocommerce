@@ -3,6 +3,10 @@
 }
 .modal-dialog {
   max-width: 30%;
+
+  &._panel {
+    max-width: 100%;
+  }
 }
 .modal-dialog-slideout {
   min-height: 100%;

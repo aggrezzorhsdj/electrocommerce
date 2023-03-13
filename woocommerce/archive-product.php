@@ -119,7 +119,7 @@ if (is_product_category()) {
                     ?>
                 </div>
                 <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-slideout" role="document">
+                    <div class="modal-dialog modal-dialog-slideout _panel" role="document">
                         <?php
                         if ( '' === get_option( 'permalink_structure' ) ) {
                             $form_action = remove_query_arg( array( 'page', 'paged' ), add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
