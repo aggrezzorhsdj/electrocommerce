@@ -10,7 +10,7 @@
  */
 wp_footer();
 ?>
-<footer class="ec-footer bg-deep-blue">
+<footer class="ec-footer bg-primary">
     <div class="container">
         <?php if ($logo = get_theme_mod('ec_footer_logo')) : ?>
         <div class="ec-footer__logo _mb-xxxl mb-5">

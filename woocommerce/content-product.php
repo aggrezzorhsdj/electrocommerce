@@ -25,16 +25,24 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <?php $columns = wc_get_loop_prop( 'columns' ); $type = $columns === 12 ? '_list' : ''?>
-<div <?php wc_product_class( "col-xl-$columns col-md-6 $type mb-4", $product ); ?>>
+<?php $is_service = in_array(43, $product->get_category_ids()); ?>
+<?php $classes = ($is_service ? "_bg" : "") . "col-xl-$columns col-md-4 col-6 $type mb-4"; ?>
+<div <?php wc_product_class( $classes, $product ); ?>>
     <div class="ec-shop__product">
         <a class="ec-shop__product-link" href="<?php echo get_permalink($product->ID)?>">
             <div class="ec-shop__product-thumbnail ec-shop__product-item">
-                <?php echo woocommerce_get_product_thumbnail()?>
+                <?php echo woocommerce_get_product_thumbnail($is_service ? "large" : "woocommerce_thumbnail")?>
             </div>
             <div class="ec-shop__product-link-content">
-                <div class="ec-shop__product-title mb-2">
+                <div class="ec-shop__product-title mb-2 <?php echo $is_service ? 'h4 text-light' : ''?>">
                     <?php echo get_the_title()?>
                 </div>
+                <?php if ($is_service && $product->get_short_description()) : ?>
+                <div class="ec-shop__product-subtitle text-light">
+                    <?php echo $product->get_short_description();?>
+                </div>
+                <?php endif;?>
+                <?php if (!$is_service) : ?>
                 <div class="ec-shop__product-link-content-info">
                     <div class="ec-shop__product-rating mb-2">
                         <?php woocommerce_template_loop_rating()?>
@@ -43,13 +51,16 @@ if ( empty( $product ) || ! $product->is_visible() ) {
                         <?php wc_get_template('loop/stock.php');?>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </a>
+        <?php if (!$is_service) : ?>
         <div class="ec-shop__product-bottom">
             <div class="ec-shop__product-price">
                 <?php woocommerce_template_loop_price();?>
             </div>
             <?php woocommerce_template_loop_add_to_cart()?>
         </div>
+        <?php endif; ?>
     </div>
 </div>

@@ -56,6 +56,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php require get_template_directory() . "/sprites.php"; ?>
 <?php echo get_field('metatitle')?>
 <?php wp_body_open(); ?>
 <header>
@@ -79,38 +80,41 @@
 
 <div class="ec-header pt-3 pb-3">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="row">
-                    <div class="col-4 d-flex align-items-center">
-                        <a class="ec-header__menu-toggler dropdown-toggle" href="#" id="catalogDropdown" data-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-list"></i>
-                        </a>
-                        <ul class="dropdown-menu catalog-menu" aria-labelledby="catalogDropdown">
-							<?php echo get_menu_items();?>
-                    </div>
-                    <div class="col-md-8 col-4">
-                        <div class="ec-header__item ec-header__logo">
-							<?php echo get_custom_logo()?>
-                        </div>
-                    </div>
+        <div class="ec-header__row">
+            <div class="ec-header__menu ec-header__item">
+                <a class="ec-header__menu-toggler dropdown-toggle" href="#">
+                    <i class="bi bi-list"></i>
+                </a>
+                <div class="ec-menu">
+                    <?php echo wp_nav_menu([
+                        "menu" => "header_menu",
+                        "menu_class" => "ec-menu__nav nav flex-column",
+                        "link_class" => "ec-menu__link nav-link",
+                        "walker" => new My_Walker_Nav_Menu()
+                    ]);?>
                 </div>
             </div>
-            <div class="col-md-6">
-				<?php aws_get_search_form( true ); ?>
+            <div class="ec-header__logo ec-header__item">
+                <?php echo get_custom_logo()?>
             </div>
-            <div class="col justify-content-end d-flex">
-                <div class="ec-header__toolbar">
-                    <div class="ec-header__toolbar-item">
-                        <?php electrocommerce_cart_html()?>
-                    </div>
-                    <div class="ec-header__toolbar-item">
-                        <?php electrocoommerce_loginout_link()?>
-                    </div>
+            <div class="ec-header__search ec-header__item">
+                <?php aws_get_search_form( true ); ?>
+            </div>
+            <div class="ec-header__toolbar ec-header__item">
+                <div class="ec-header__toolbar-item">
+                    <?php electrocommerce_cart_html()?>
+                </div>
+                <div class="ec-header__toolbar-item">
+                    <?php electrocoommerce_loginout_link()?>
                 </div>
             </div>
-
         </div>
+    </div>
+
+    <div class="ec-header__mobile">
+        <div class="ec-header__back ec-header__mobile-item d-none"><i class="bi bi-arrow-left"></i></div>
+        <div class="ec-header__menu-title ec-header__mobile-item"></div>
+        <div class="ec-header__close ec-header__mobile-item"><i class="bi bi-x-lg"></i></div>
     </div>
 </div>
 

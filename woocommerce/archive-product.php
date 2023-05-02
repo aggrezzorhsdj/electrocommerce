@@ -37,7 +37,7 @@ if (is_product_category()) {
     <section class="ec-section ec-shop">
         <div class="container">
             <div class="row align-items-center mb-4">
-                <div class="col-md-6">
+                <div class="col">
                     <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
                         <div class="ec-shop__title">
                             <h1><?php woocommerce_page_title(); ?></h1>
@@ -52,7 +52,7 @@ if (is_product_category()) {
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="ec-shop__panel">
                         <?php $columns = wc_get_loop_prop('columns'); ?>
                         <a href="<?php echo home_url($wp->request) ?>"
@@ -119,7 +119,7 @@ if (is_product_category()) {
                     ?>
                 </div>
                 <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-slideout _panel" role="document">
+                    <div class="modal-dialog modal-dialog-slideout" role="document">
                         <?php
                         if ( '' === get_option( 'permalink_structure' ) ) {
                             $form_action = remove_query_arg( array( 'page', 'paged' ), add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );

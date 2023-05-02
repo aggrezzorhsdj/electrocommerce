@@ -12,9 +12,38 @@
   display: flex;
   align-items: center;
 
+  &__row {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      padding-right: $ec-gutter;
+    }
+  }
+
+  &__search {
+    flex: 1;
+
+    .aws-container {
+      flex: 1;
+    }
+
+    @media(max-width: 769px) {
+      display: none;
+    }
+  }
+
   &__logo {
     display: flex;
     justify-content: center;
+
+    @media(max-width: 769px) {
+      flex: 1;
+    }
   }
 
   &__menu {
@@ -27,6 +56,8 @@
       border-radius: $ec-border-radius;
       color: $primary;
 
+      .dropdown-toggle::after
+
       &.show {
         background-color: $deep-blue;
         color: $snow;
@@ -35,13 +66,21 @@
       .bi {
         font-size: 1.3rem;
       }
+
+      @media(max-width: 769px) {
+        .dropdown-menu {
+          &.show {
+            position: fixed;
+
+          }
+        }
+      }
     }
   }
 
   #cart-customlocation {
     position: relative;
     color: $black-hole;
-
   }
 
   .ec-cart-count {
@@ -59,7 +98,7 @@
   }
 
   &__toolbar {
-    display: none;
+    display: flex;
     align-items: center;
 
     &-item {
@@ -72,8 +111,43 @@
       padding: $navbar-nav-link-padding-x $navbar-nav-link-padding-x;
     }
 
-    @media screen and (min-width: 768px) {
-      display: flex;
+    @media (max-width: 769px) {
+      .woocommerce-Price-amount {
+        display: none;
+      }
+
+      &-item:last-child {
+        display: none;
+      }
     }
+  }
+
+  &__mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $ec-header-height;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $snow;
+    padding: 0 $nav-link-padding-x;
+
+    i {
+      font-size: 20px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 992px) {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 }

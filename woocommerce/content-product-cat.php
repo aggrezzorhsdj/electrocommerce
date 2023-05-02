@@ -18,40 +18,28 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 ?>
-<li <?php wc_product_cat_class( 'ec-column-md-3', $category ); ?>>
-	<?php
-	/**
-	 * The woocommerce_before_subcategory hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_link_open - 10
-	 */
-	do_action( 'woocommerce_before_subcategory', $category );
-
-	/**
-	 * The woocommerce_before_subcategory_title hook.
-	 *
-	 * @hooked woocommerce_subcategory_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_subcategory_title', $category );
-
-	/**
-	 * The woocommerce_shop_loop_subcategory_title hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_subcategory_title', $category );
-
-	/**
-	 * The woocommerce_after_subcategory_title hook.
-	 */
-	do_action( 'woocommerce_after_subcategory_title', $category );
-
-	/**
-	 * The woocommerce_after_subcategory hook.
-	 *
-	 * @hooked woocommerce_template_loop_category_link_close - 10
-	 */
-	do_action( 'woocommerce_after_subcategory', $category );
-	?>
-</li>
+<?php $columns = wc_get_loop_prop( 'columns' ); $type = $columns === 12 ? '_list' : ''?>
+<?php $classes = "_bg col-xl-$columns col-md-6 $type mb-4"; ?>
+<?php
+    $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+    $image = wp_get_attachment_image( $thumbnail_id, "large" );
+?>
+<div <?php wc_product_cat_class( $classes, $category ); ?>>
+    <div class="ec-shop__product">
+        <a class="ec-shop__product-link" href="<?php echo get_term_link( $category->term_id, 'product_cat' )?>">
+            <div class="ec-shop__product-thumbnail ec-shop__product-item">
+                <?php echo $image;?>
+            </div>
+            <div class="ec-shop__product-link-content">
+                <div class="ec-shop__product-title mb-2 h4 text-light">
+                    <?php echo $category->name;?>
+                </div>
+                <div class="ec-shop__product-subtitle text-light">
+                    <?php echo $category->description;?>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

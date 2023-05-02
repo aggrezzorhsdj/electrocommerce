@@ -173,7 +173,7 @@ function electrocommerce_cart_html() {
             $amount = WC()->cart->cart_contents_total + WC()->cart->tax_total;
         }
         ?>
-        <?php echo ($amount ? wc_price($amount) : esc_html_e('Cart', 'woocommerce'))?>
+        <span><?php echo ($amount ? wc_price($amount) : esc_html_e('Cart', 'woocommerce'))?></span>
         <?php if ($amount !== 0) : ?>
             <span class="ec-cart-count"><?php echo WC()->cart->get_cart_contents_count()?></span>
         <?php endif;?>
@@ -489,4 +489,32 @@ function electrocommerce_modal_button($id_modal, $text, $classes = '', $icon = '
 
 function get_args_value($key, $args, $default = '') {
     return array_key_exists($key, $args) ? $args[$key] : $default;
+}
+
+function front_page_slider() {
+    ?>
+    <div class="ec-carousel glide" aria-label="Splide Basic HTML Example">
+        <div class="ec-carousel__track glide__track" data-glide-el="track">
+            <ul class="ec-carousel__list glide__slides">
+                <?php for($i = 1; $i < 3; $i++) :?>
+                    <?php if ($image = get_theme_mod('ec_front_page_'.$i.'_image')) : ?>
+                        <li class="ec-carousel__slide glide__slide">
+                            <a class="ec-carousel__link" href="<?php echo get_theme_mod('ec_front_page_'.$i.'_link')?>">
+                                <img class="ec-carousel__image" src="<?php echo $image?>"/>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endfor;?>
+            </ul>
+        </div>
+        <div class="ec-carousel__arrows glide__arrows" data-glide-el="controls">
+            <button class="ec-carousel__arrow glide__arrow glide__arrow--left btn btn-light" data-glide-dir="<">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="ec-carousel__arrow glide__arrow glide__arrow--right btn btn-light" data-glide-dir=">">
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+    <?php
 }

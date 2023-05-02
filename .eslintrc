@@ -3,6 +3,20 @@
         "plugin:@wordpress/eslint-plugin/esnext"
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "quotes": [2, "double", { "avoidEscape": true }],
+        "space-in-parens": [0, "never"],
+        "no-console": "off",
+        "indent": "off",
+        "comma-dangle": "off",
+        "no-trailing-spaces": "off",
+        "computed-property-spacing": "off",
+        "space-unary-ops": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020
     }
 }

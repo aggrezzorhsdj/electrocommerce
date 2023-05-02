@@ -20,6 +20,7 @@ $ec-shadow-1: 0 1px 24px 1px rgba($black-hole, 0.14);
 $ec-shadow-2: 0 2px 2px rgba(0, 0, 0, 0.25);
 $ec-hover-transition: .2s ease;
 $ec-focus-transition: .1s ease-in-out;
+$ec-animate-transition: .15s ease-in;
 $ec-active-scale: 0.95;
 $ec-shop-product-shadow: 0 0 5px rgba($black-hole, 0.25);
 
@@ -51,6 +52,7 @@ $ec-font-focus-size: 10px;
 
 // header
 $ec-header-box-shadow: 0 1px 24px 1px rgba(0, 0, 0, 0.14);
+$ec-box-shadow: 0 0 24px 1px rgba(0, 0, 0, 0.3);
 
 // buttons
 $ec-button-nav-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);

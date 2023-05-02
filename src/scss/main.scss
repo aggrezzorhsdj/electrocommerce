@@ -32,6 +32,7 @@ $modal-content-border-radius: 6px;
 $modal-backdrop-bg: $darker;
 $modal-header-padding: $ec-padding-xl;
 $modal-inner-padding: 1.28rem;
+$enable-caret: false;
 
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -103,6 +104,7 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 
 //components
 @import "components/header";
+@import "components/menu";
 @import "components/sliders";
 @import "components/footer";
 @import "components/links";
@@ -121,6 +123,6 @@ url("../../node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff?08efbba7
 body {
   font-size: 14px;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: $low;
 }

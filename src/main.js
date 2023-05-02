@@ -12,3 +12,4 @@ import 'bootstrap/js/src/tab';
 import './js/bootstrap-select';
 import './js/bootstrapCustoms';
 import './js/lightbox';
+import './js/menu';

@@ -12,6 +12,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+include get_template_directory() . "/inc/my-walker-nav-menu.php";
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -436,6 +438,59 @@ function ajax_get_products() {
 	wp_die();
 }
 
+add_filter( 'wp_nav_menu_objects', 'css_for_nav_parrent' );
+function css_for_nav_parrent( $items ){
+
+    foreach( $items as $item ){
+        if( __nav_hasSub( $item->ID, $items ) ){
+            $item->classes[] = 'ec-menu__parent';
+        }
+    }
+
+    return $items;
+}
+
+add_filter('wp_nav_menu_objects' , 'my_menu_class');
+function my_menu_class($menu) {
+    $level = 0;
+    $stack = array('0');
+    foreach($menu as $key => $item) {
+        while($item->menu_item_parent != array_pop($stack)) {
+            $level--;
+        }
+        $level++;
+        $stack[] = $item->menu_item_parent;
+        $stack[] = $item->ID;
+        $menu[$key]->classes[] = 'level-'. ($level - 1);
+    }
+    return $menu;
+}
+
+function __nav_hasSub( $item_id, $items ){
+
+    foreach( $items as $item ){
+
+        if( $item->menu_item_parent && $item->menu_item_parent == $item_id )
+            return true;
+    }
+
+    return false;
+}
+
+add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 2 );
+function special_nav_class($classes, $item){
+    $classes[] = "ec-menu__item nav-item";
+
+    return $classes;
+}
+
+function add_menu_link_class( $atts, $item, $args ) {
+    if (property_exists($args, 'link_class')) {
+        $atts['class'] = $args->link_class;
+    }
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
 /**
  * Implement the Custom Header feature.
