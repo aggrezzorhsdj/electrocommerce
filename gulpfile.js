@@ -46,4 +46,10 @@ function svg() {
         .pipe(dest("./"));
 }
 
+function copyFonts() {
+    return src("./node_modules/bootstrap-icons/font/fonts/**")
+        .pipe(dest("./assets/fonts"));
+}
+
 exports.svg = svg;
+exports.copyFonts = copyFonts;

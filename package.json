@@ -11,7 +11,8 @@
   "scripts": {
     "build": "webpack --env production",
     "dev": "webpack --env watch",
-    "svg": "gulp svg"
+    "svg": "gulp svg",
+    "copy-fonts": "gulp copyFonts"
   },
   "browserslist": [
     "> 0.25%, not dead"
